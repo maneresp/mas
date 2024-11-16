@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع الملازم</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #6C63FF, #8A84E2);
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #000000;
+            color: #FFFF00;
+            padding: 15px 10;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        header h1 {
+            font-size: 2em;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        .intro-text {
+            font-size: 1em;
+            margin-top: 5px;
+            color: #FFFFFF;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .category-btn {
+            background-color: #191970;
+            color: white;
+            padding: 4px 15px;
+            font-size: 20px;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: transform 0.4s ease, background-color 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 450px;
+        }
+
+        .category-btn:hover {
+            transform: scale(1.05);
+            background-color: #000000;
+        }
+
+        .note-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 50px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .note-item {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px;
+            margin: 4px 0;
+            border-radius: 15px;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+        }
+
+        .note-item:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .note-item a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            display: inline-block;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #333;
+            color: white;
+            padding: 20px 25px;
+            text-decoration: none;
+            border-radius: 50%;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #555;
+            transform: scale(1.1);
+        }
+
+        footer {
+            padding: 100px 110;
+            background-color: #0000FF;
+            color: #dfe1e5;
+            font-size: 1em;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-text {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>موقع الملازم</h1>
+        <p class="intro-text">موقع يحتوي على الملازم الدراسية لرابع الاعدادي</p>
+    </header>
+
+    <main>
+        <div id="content"></div>
+    </main>
+
+    <footer>
+        <p class="footer-text">جميع الحقوق محفوظة 2024</p>
+    </footer>
+
+    <script>
+        // تحميل البيانات من ملف JSON
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                let contentDiv = document.getElementById('content');
+                // إظهار الفئات
+                contentDiv.innerHTML = `
+                    <div class="button-container">
+                        <a class="category-btn" href="#" onclick="loadNotes('science')">ملازم الرابع علمي  📚</a>
+                        <a class="category-btn" href="#" onclick="loadNotes('literary')">ملازم الرابع أدبي  📚</a>
+                        <a class="category-btn" href="#" onclick="loadBooks('science_books')">كتب الرابع علمي 📚</a>
+                        <a class="category-btn" href="#" onclick="loadBooks('literary_books')">كتب الرابع أدبي 📚</a>
+                    </div>
+                `;
+            });
+
+        // تحميل الملازم
+        function loadNotes(category) {
+            fetch('data.json')
+                .then(response => response.json())
+                .then(data => {
+                    const notes = data[category + '_notes'];
+                    let noteListHTML = '<ul class="note-list">';
+                    notes.forEach(note => {
+                        noteListHTML += `
+                            <li class="note-item">
+                                <a href="${note.link}" target="_blank">${note.title}</a>
+                            </li>
+                        `;
+                    });
+                    noteListHTML += '</ul>';
+                    document.getElementById('content').innerHTML = noteListHTML;
+                });
+        }
+
+        // تحميل الكتب
+        function loadBooks(category) {
+            fetch('data.json')
+                .then(response => response.json())
+                .then(data => {
+                    const books = data[category];
+                    let bookListHTML = '<ul class="note-list">';
+                    books.forEach(book => {
+                        bookListHTML += `
+                            <li class="note-item">
+                                <a href="${book.link}" target="_blank">${book.title}</a>
+                            </li>
+                        `;
+                    });
+                    bookListHTML += '</ul>';
+                    document.getElementById('content').innerHTML = bookListHTML;
+                });
+        }
+    </script>
+</body>
+</html>
