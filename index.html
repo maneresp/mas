@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع الملازم</title>
+    <title>موقع ملازمنا - الصفحة الرئيسية</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -132,72 +132,77 @@
 <body>
 
     <header>
-        <h1>موقع الملازم</h1>
+        <h1>مرحبًا بكم في موقع الملازم</h1>
         <p class="intro-text">موقع يحتوي على الملازم الدراسية لرابع الاعدادي</p>
     </header>
 
-    <main>
-        <div id="content"></div>
-    </main>
+    <main id="content"></main>
 
     <footer>
-        <p class="footer-text">جميع الحقوق محفوظة 2024</p>
+        <p class="footer-text">جميع الحقوق محفوظة لدى حسو ال علي 2024</p>
     </footer>
 
     <script>
-        // تحميل البيانات من ملف JSON
-        fetch('data.json')
-            .then(response => response.json())
-            .then(data => {
-                let contentDiv = document.getElementById('content');
-                // إظهار الفئات
-                contentDiv.innerHTML = `
-                    <div class="button-container">
-                        <a class="category-btn" href="#" onclick="loadNotes('science')">ملازم الرابع علمي  📚</a>
-                        <a class="category-btn" href="#" onclick="loadNotes('literary')">ملازم الرابع أدبي  📚</a>
-                        <a class="category-btn" href="#" onclick="loadBooks('science_books')">كتب الرابع علمي 📚</a>
-                        <a class="category-btn" href="#" onclick="loadBooks('literary_books')">كتب الرابع أدبي 📚</a>
-                    </div>
-                `;
+        const science_books_list = [
+            { "title": "كتاب الاسلامية الرابع علمي", "link": "https://example.com/science_books_islamic" },
+            { "title": "كتاب العربي الرابع علمي", "link": "https://example.com/science_books_arabic" },
+            { "title": "كتاب الانكليزي الرابع علمي", "link": "https://example.com/science_books_english" },
+            { "title": "كتاب الرياضيات الرابع علمي", "link": "https://example.com/science_books_math" },
+            { "title": "كتاب الكيمياء الرابع علمي", "link": "https://example.com/science_books_chemistry" },
+            { "title": "كتاب الاحياء الرابع علمي", "link": "https://example.com/science_books_biology" },
+            { "title": "كتاب الفيزياء الرابع علمي", "link": "https://example.com/science_books_physics" },
+            { "title": "كتاب الحاسوب الرابع علمي", "link": "https://example.com/science_books_computer" },
+            { "title": "كتاب الجغرافيا الرابع علمي", "link": "https://example.com/science_books_geography" },
+            { "title": "كتاب الفقه الرابع علمي", "link": "https://example.com/science_books_fiqh" },
+            { "title": "كتاب التاريخ الرابع علمي", "link": "https://example.com/science_books_history" },
+            { "title": "كتاب اللغة الفرنسية الرابع علمي", "link": "https://example.com/science_books_french" }
+        ];
+
+        const literary_books_list = [
+            { "title": "كتاب الاسلامية الرابع أدبي", "link": "https://example.com/literary_books_islamic" },
+            { "title": "كتاب العربي الرابع أدبي", "link": "https://example.com/literary_books_arabic" },
+            { "title": "كتاب الانكليزي الرابع أدبي", "link": "https://example.com/literary_books_english" },
+            { "title": "كتاب التاريخ الرابع أدبي", "link": "https://example.com/literary_books_history" },
+            { "title": "كتاب الجغرافيا الرابع أدبي", "link": "https://example.com/literary_books_geography" },
+            { "title": "كتاب الفلسفة الرابع أدبي", "link": "https://example.com/literary_books_philosophy" },
+            { "title": "كتاب علم النفس الرابع أدبي", "link": "https://example.com/literary_books_psychology" },
+            { "title": "كتاب التربية الوطنية الرابع أدبي", "link": "https://example.com/literary_books_national_education" },
+            { "title": "كتاب الفقه الرابع أدبي", "link": "https://example.com/literary_books_fiqh" },
+            { "title": "كتاب اللغة الفرنسية الرابع أدبي", "link": "https://example.com/literary_books_french" }
+        ];
+
+        function displayCategory(category) {
+            let content = document.getElementById("content");
+            if (category === 'science_books') {
+                content.innerHTML = createBookList(science_books_list);
+            } else if (category === 'literary_books') {
+                content.innerHTML = createBookList(literary_books_list);
+            } else {
+                content.innerHTML = createMainPage();
+            }
+        }
+
+        function createBookList(books) {
+            let listHtml = '<ul class="note-list">';
+            books.forEach(book => {
+                listHtml += `<li class="note-item"><a href="${book.link}" target="_blank">${book.title}</a></li>`;
             });
-
-        // تحميل الملازم
-        function loadNotes(category) {
-            fetch('data.json')
-                .then(response => response.json())
-                .then(data => {
-                    const notes = data[category + '_notes'];
-                    let noteListHTML = '<ul class="note-list">';
-                    notes.forEach(note => {
-                        noteListHTML += `
-                            <li class="note-item">
-                                <a href="${note.link}" target="_blank">${note.title}</a>
-                            </li>
-                        `;
-                    });
-                    noteListHTML += '</ul>';
-                    document.getElementById('content').innerHTML = noteListHTML;
-                });
+            listHtml += '</ul>';
+            listHtml += '<a href="/" class="back-btn">&#8592;</a>';
+            return listHtml;
         }
 
-        // تحميل الكتب
-        function loadBooks(category) {
-            fetch('data.json')
-                .then(response => response.json())
-                .then(data => {
-                    const books = data[category];
-                    let bookListHTML = '<ul class="note-list">';
-                    books.forEach(book => {
-                        bookListHTML += `
-                            <li class="note-item">
-                                <a href="${book.link}" target="_blank">${book.title}</a>
-                            </li>
-                        `;
-                    });
-                    bookListHTML += '</ul>';
-                    document.getElementById('content').innerHTML = bookListHTML;
-                });
+        function createMainPage() {
+            return `
+                <div class="button-container">
+                    <a class="category-btn" href="javascript:displayCategory('science_books')">كتب الرابع علمي 📚</a>
+                    <a class="category-btn" href="javascript:displayCategory('literary_books')">كتب الرابع أدبي 📚</a>
+                </div>
+            `;
         }
+
+        // Display main page initially
+        displayCategory();
     </script>
 </body>
 </html>
