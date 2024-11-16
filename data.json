@@ -1,0 +1,23 @@
+{
+  "science_books": [
+    {"title": "كتاب الاسلامية الرابع علمي", "link": "https://example.com/science_books_islamic"},
+    {"title": "كتاب العربي الرابع علمي", "link": "https://example.com/science_books_arabic"},
+    {"title": "كتاب الانكليزي الرابع علمي", "link": "https://example.com/science_books_english"}
+    // باقي الكتب
+  ],
+  "literary_books": [
+    {"title": "كتاب الاسلامية الرابع أدبي", "link": "https://example.com/literary_books_islamic"},
+    {"title": "كتاب العربي الرابع أدبي", "link": "https://example.com/literary_books_arabic"}
+    // باقي الكتب
+  ],
+  "science_notes": [
+    {"title": "ملزمة الاسلامية الرابع علمي", "link": "https://drive.google.com/file/d/1h680ZKaEJ5JLUu50sHWwtQBMzsvMe1ZK/view?usp=drivesdk"},
+    {"title": "ملزمة العربي الرابع علمي ج1", "link": "https://drive.google.com/file/d/1Agj5wgrOXWvAn0MWHtZuxCtdH1c-azYX/view?usp=drivesdk"}
+    // باقي الملازم
+  ],
+  "literary_notes": [
+    {"title": "ملزمة الاسلامية الرابع أدبي", "link": "https://drive.google.com/file/d/1h680ZKaEJ5JLUu50sHWwtQBMzsvMe1ZK/view?usp=drivesdk"},
+    {"title": "ملازم العربي الرابع أدبي ج1", "link": "https://drive.google.com/file/d/1Agj5wgrOXWvAn0MWHtZuxCtdH1c-azYX/view?usp=drivesdk"}
+    // باقي الملازم
+  ]
+}
