@@ -1,23 +1,52 @@
 {
-  "science_books": [
+  "science_books_list": [
     {"title": "كتاب الاسلامية الرابع علمي", "link": "https://example.com/science_books_islamic"},
     {"title": "كتاب العربي الرابع علمي", "link": "https://example.com/science_books_arabic"},
-    {"title": "كتاب الانكليزي الرابع علمي", "link": "https://example.com/science_books_english"}
-    // باقي الكتب
+    {"title": "كتاب الانكليزي الرابع علمي", "link": "https://example.com/science_books_english"},
+    {"title": "كتاب الرياضيات الرابع علمي", "link": "https://example.com/science_books_math"},
+    {"title": "كتاب الكيمياء الرابع علمي", "link": "https://example.com/science_books_chemistry"},
+    {"title": "كتاب الاحياء الرابع علمي", "link": "https://example.com/science_books_biology"},
+    {"title": "كتاب الفيزياء الرابع علمي", "link": "https://example.com/science_books_physics"},
+    {"title": "كتاب الحاسوب الرابع علمي", "link": "https://example.com/science_books_computer"},
+    {"title": "كتاب الجغرافيا الرابع علمي", "link": "https://example.com/science_books_geography"},
+    {"title": "كتاب الفقه الرابع علمي", "link": "https://example.com/science_books_fiqh"},
+    {"title": "كتاب التاريخ الرابع علمي", "link": "https://example.com/science_books_history"},
+    {"title": "كتاب اللغة الفرنسية الرابع علمي", "link": "https://example.com/science_books_french"}
   ],
-  "literary_books": [
+  "literary_books_list": [
     {"title": "كتاب الاسلامية الرابع أدبي", "link": "https://example.com/literary_books_islamic"},
-    {"title": "كتاب العربي الرابع أدبي", "link": "https://example.com/literary_books_arabic"}
-    // باقي الكتب
+    {"title": "كتاب العربي الرابع أدبي", "link": "https://example.com/literary_books_arabic"},
+    {"title": "كتاب الانكليزي الرابع أدبي", "link": "https://example.com/literary_books_english"},
+    {"title": "كتاب التاريخ الرابع أدبي", "link": "https://example.com/literary_books_history"},
+    {"title": "كتاب الجغرافيا الرابع أدبي", "link": "https://example.com/literary_books_geography"},
+    {"title": "كتاب الفلسفة الرابع أدبي", "link": "https://example.com/literary_books_philosophy"},
+    {"title": "كتاب علم النفس الرابع أدبي", "link": "https://example.com/literary_books_psychology"},
+    {"title": "كتاب التربية الوطنية الرابع أدبي", "link": "https://example.com/literary_books_national_education"},
+    {"title": "كتاب الفقه الرابع أدبي", "link": "https://example.com/literary_books_fiqh"},
+    {"title": "كتاب اللغة الفرنسية الرابع أدبي", "link": "https://example.com/literary_books_french"}
   ],
   "science_notes": [
     {"title": "ملزمة الاسلامية الرابع علمي", "link": "https://drive.google.com/file/d/1h680ZKaEJ5JLUu50sHWwtQBMzsvMe1ZK/view?usp=drivesdk"},
-    {"title": "ملزمة العربي الرابع علمي ج1", "link": "https://drive.google.com/file/d/1Agj5wgrOXWvAn0MWHtZuxCtdH1c-azYX/view?usp=drivesdk"}
-    // باقي الملازم
+    {"title": "ملزمة العربي الرابع علمي ج1", "link": "https://drive.google.com/file/d/1Agj5wgrOXWvAn0MWHtZuxCtdH1c-azYX/view?usp=drivesdk"},
+    {"title": "ملزمة العربي الرابع علمي ج2", "link": "https://drive.google.com/file/d/1m3VgBMJSNVpUSoPPwcaCCYSprF5L1LFs/view?usp=drivesdk"},
+    {"title": "ملزمة الانكليزي الرابع علمي ج1", "link": "https://drive.google.com/file/d/12lI5cli9V237pcSDBDQhc5DcD_b8YJwc/view?usp=drivesdk"},
+    {"title": "ملزمة الانكليزي الرابع علمي ج2", "link": "https://drive.google.com/file/d/1ZbDv-uSY-z7Le0vxKDkNcPcRi51XgbN5/view?usp=drivesdk"},
+    {"title": "ملزمة الرياضيات الرابع علمي", "link": "https://drive.google.com/file/d/1ZngHX3zIIiEOzUtWStdzSAtLJdlsYK_I/view?usp=drivesdk"},
+    {"title": "ملزمة الكيمياء الرابع علمي", "link": "https://drive.google.com/file/d/132M0TUEIglBb_gPLc2zE613j_2ZqmoUv/view?usp=drivesdk"},
+    {"title": "ملزمة الاحياء الرابع علمي", "link": "https://drive.google.com/file/d/1XDc1N7T7ukqlXVq6MQXJdx3tj4hWYNOc/view?usp=drivesdk"},
+    {"title": "ملزمة الفيزياء الرابع علمي", "link": "https://drive.google.com/file/d/1bS0nwOwwdVD_QBDkKkLLHjV0J4vds2mG/view?usp=drivesdk"},
+    {"title": "ملزمة الحاسوب الرابع علمي", "link": "https://example.com/science_computer"}
   ],
   "literary_notes": [
     {"title": "ملزمة الاسلامية الرابع أدبي", "link": "https://drive.google.com/file/d/1h680ZKaEJ5JLUu50sHWwtQBMzsvMe1ZK/view?usp=drivesdk"},
-    {"title": "ملازم العربي الرابع أدبي ج1", "link": "https://drive.google.com/file/d/1Agj5wgrOXWvAn0MWHtZuxCtdH1c-azYX/view?usp=drivesdk"}
-    // باقي الملازم
+    {"title": "ملازم العربي الرابع أدبي ج1", "link": "https://drive.google.com/file/d/1Agj5wgrOXWvAn0MWHtZuxCtdH1c-azYX/view?usp=drivesdk"},
+    {"title": "ملازم العربي الرابع ادبي ج2", "link": "https://drive.google.com/file/d/1m3VgBMJSNVpUSoPPwcaCCYSprF5L1LFs/view?usp=drivesdk"},
+    {"title": "ملزمة الانكليزي الرابع ادبي ج1", "link": "https://drive.google.com/file/d/12lI5cli9V237pcSDBDQhc5DcD_b8YJwc/view?usp=drivesdk"},
+    {"title": "ملزمة الانكليزي الرابع ادبي ج2", "link": "https://drive.google.com/file/d/1ZbDv-uSY-z7Le0vxKDkNcPcRi51XgbN5/view?usp=drivesdk"},
+    {"title": "ملزمة الرياضيات الرابع أدبي", "link": "https://drive.google.com/file/d/12mAuaSyJCwoe4Gk2QyVFUprnJ0GY43w2/view?usp=drivesdk"},
+    {"title": "ملزمة التاريخ الرابع أدبي", "link": "https://drive.google.com/file/d/1fUp4I4MBzVYe2PFz7HYdt9jX8zvcwgDG/view?usp=drivesdk"},
+    {"title": "ملزمة الجغرافيه الرابع أدبي", "link": "https://drive.google.com/file/d/1VvhUlzxcLqEhrNITKqEkJLa8SzOB7hSj/view?usp=drivesdk"},
+    {"title": "ملزمة علم الاجتماع الرابع أدبي", "link": "https://drive.google.com/file/d/1qjylVJ5DHaxnQzprt7Gv46tanoNdIOIU/view?usp=drivesdk"},
+    {"title": "ملزمة الحاسوب الرابع أدبي", "link": "https://example.com/science_computer"}
   ]
 }
