@@ -171,38 +171,61 @@
             { "title": "كتاب اللغة الفرنسية الرابع أدبي", "link": "https://example.com/literary_books_french" }
         ];
 
-        function displayCategory(category) {
+        // قوائم الملازم
+        const science_notes_list = [
+   {"title": "ملزمة الاسلامية الرابع علمي", "link": "https://drive.google.com/file/d/1h680ZKaEJ5JLUu50sHWwtQBMzsvMe1ZK/view?usp=drivesdk"},
+    {"title": "ملزمة العربي الرابع علمي ج1", "link": "https://drive.google.com/file/d/1Agj5wgrOXWvAn0MWHtZuxCtdH1c-azYX/view?usp=drivesdk"},
+    {"title": "ملزمة العربي الرابع علمي ج2", "link": "https://drive.google.com/file/d/1m3VgBMJSNVpUSoPPwcaCCYSprF5L1LFs/view?usp=drivesdk"},
+    {"title": "ملزمة الانكليزي الرابع علمي ج1", "link": "https://drive.google.com/file/d/12lI5cli9V237pcSDBDQhc5DcD_b8YJwc/view?usp=drivesdk"},
+    {"title": "ملزمة الانكليزي الرابع علمي ج2", "link": "https://drive.google.com/file/d/1ZbDv-uSY-z7Le0vxKDkNcPcRi51XgbN5/view?usp=drivesdk"},
+    {"title": "ملزمة الرياضيات الرابع علمي", "link": "https://drive.google.com/file/d/1ZngHX3zIIiEOzUtWStdzSAtLJdlsYK_I/view?usp=drivesdk"},
+    {"title": "ملزمة الكيمياء الرابع علمي", "link": "https://drive.google.com/file/d/132M0TUEIglBb_gPLc2zE613j_2ZqmoUv/view?usp=drivesdk"},
+    {"title": "ملزمة الاحياء الرابع علمي", "link": "https://drive.google.com/file/d/1XDc1N7T7ukqlXVq6MQXJdx3tj4hWYNOc/view?usp=drivesdk"},
+    {"title": "ملزمة الفيزياء الرابع علمي", "link": "https://drive.google.com/file/d/1bS0nwOwwdVD_QBDkKkLLHjV0J4vds2mG/view?usp=drivesdk"},
+    {"title": "ملزمة الحاسوب الرابع علمي", "link": "https://example.com/science_computer"}
+    
+        ];
+
+        const literary_notes_list = [
+    {"title": "ملزمة الاسلامية الرابع أدبي", "link": "https://drive.google.com/file/d/1h680ZKaEJ5JLUu50sHWwtQBMzsvMe1ZK/view?usp=drivesdk"},
+    {"title": "ملازم العربي الرابع أدبي ج1", "link": "https://drive.google.com/file/d/1Agj5wgrOXWvAn0MWHtZuxCtdH1c-azYX/view?usp=drivesdk"},
+    {"title": "ملازم العربي الرابع ادبي ج2", "link": "https://drive.google.com/file/d/1m3VgBMJSNVpUSoPPwcaCCYSprF5L1LFs/view?usp=drivesdk"},
+    {"title": "ملزمة الانكليزي الرابع ادبي ج1", "link": "https://drive.google.com/file/d/12lI5cli9V237pcSDBDQhc5DcD_b8YJwc/view?usp=drivesdk"},
+    {"title": "ملزمة الانكليزي الرابع ادبي ج2", "link": "https://drive.google.com/file/d/1ZbDv-uSY-z7Le0vxKDkNcPcRi51XgbN5/view?usp=drivesdk"},
+    {"title": "ملزمة الرياضيات الرابع أدبي", "link": "https://drive.google.com/file/d/12mAuaSyJCwoe4Gk2QyVFUprnJ0GY43w2/view?usp=drivesdk"},
+    {"title": "ملزمة التاريخ الرابع أدبي", "link": "https://drive.google.com/file/d/1fUp4I4MBzVYe2PFz7HYdt9jX8zvcwgDG/view?usp=drivesdk"},
+    {"title": "ملزمة الجغرافيه الرابع أدبي", "link": "https://drive.google.com/file/d/1VvhUlzxcLqEhrNITKqEkJLa8SzOB7hSj/view?usp=drivesdk"},
+    {"title": "ملزمة علم الاجتماع الرابع أدبي", "link": "https://drive.google.com/file/d/1qjylVJ5DHaxnQzprt7Gv46tanoNdIOIU/view?usp=drivesdk"},
+    {"title": "ملزمة الحاسوب الرابع أدبي", "link": "https://example.com/science_computer"}
+        ];
+function displayCategory(category) {
             let content = document.getElementById("content");
             if (category === 'science_books') {
                 content.innerHTML = createBookList(science_books_list);
             } else if (category === 'literary_books') {
                 content.innerHTML = createBookList(literary_books_list);
-            } else {
-                content.innerHTML = createMainPage();
+            } else if (category === 'science_notes') {
+                content.innerHTML = createBookList(science_notes_list);
+            } else if (category === 'literary_notes') {
+                content.innerHTML = createBookList(literary_notes_list);
             }
         }
 
-        function createBookList(books) {
+        function createBookList(bookList) {
             let listHtml = '<ul class="note-list">';
-            books.forEach(book => {
+            bookList.forEach(book => {
                 listHtml += `<li class="note-item"><a href="${book.link}" target="_blank">${book.title}</a></li>`;
             });
             listHtml += '</ul>';
-            listHtml += '<a href="/" class="back-btn">&#8592;</a>';
             return listHtml;
         }
-
-        function createMainPage() {
-            return `
-                <div class="button-container">
-                    <a class="category-btn" href="javascript:displayCategory('science_books')">كتب الرابع علمي 📚</a>
-                    <a class="category-btn" href="javascript:displayCategory('literary_books')">كتب الرابع أدبي 📚</a>
-                </div>
-            `;
-        }
-
-        // Display main page initially
-        displayCategory();
     </script>
+
+    <div class="button-container">
+        <button class="category-btn" onclick="displayCategory('science_books')">كتب الرابع علمي</button>
+        <button class="category-btn" onclick="displayCategory('literary_books')">كتب الرابع أدبي</button>
+        <button class="category-btn" onclick="displayCategory('science_notes')">ملازم الرابع علمي</button>
+        <button class="category-btn" onclick="displayCategory('literary_notes')">ملازم الرابع أدبي</button>
+    </div>
 </body>
 </html>
