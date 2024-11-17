@@ -45,7 +45,7 @@
             gap: 25px;
             margin-top: 40px;
         }
-        
+
         .category-btn {
             background-color: #191970;
             color: white;
@@ -97,20 +97,20 @@
             font-weight: bold;
         }
 
-        .back-btn {
-            display: inline-block;
-            position: absolute;
+        .back-btn-top {
+            position: fixed;
             top: 20px;
             left: 20px;
             background-color: #333;
             color: white;
-            padding: 20px 25px;
-            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 18px;
             border-radius: 50%;
             transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
         }
 
-        .back-btn:hover {
+        .back-btn-top:hover {
             background-color: #555;
             transform: scale(1.1);
         }
@@ -143,6 +143,7 @@
             <a class="category-btn" href="#" onclick="showBooks('science')">كتب الرابع علمي 📚</a>
             <a class="category-btn" href="#" onclick="showBooks('literary')">كتب الرابع أدبي 📚</a>
         </div>
+        <div id="notes-container" class="note-list"></div>
     </main>
 
     <footer>
@@ -183,60 +184,49 @@
             {"title": "ملزمة العربي الرابع علمي ج1", "link": "https://drive.google.com/file/d/1Agj5wgrOXWvAn0MWHtZuxCtdH1c-azYX/view?usp=drivesdk"},
             {"title": "ملزمة العربي الرابع علمي ج2", "link": "https://drive.google.com/file/d/1m3VgBMJSNVpUSoPPwcaCCYSprF5L1LFs/view?usp=drivesdk"},
             {"title": "ملزمة الانكليزي الرابع علمي ج1", "link": "https://drive.google.com/file/d/12lI5cli9V237pcSDBDQhc5DcD_b8YJwc/view?usp=drivesdk"},
-            {"title": "ملزمة الانكليزي الرابع علمي ج2", "link": "https://drive.google.com/file/d/1ZbDv-uSY-z7ghhv8/view?usp=drivesdk"},
-            {"title": "ملزمة الرياضيات الرابع علمي", "link": "https://drive.google.com/file/d/1tNgyR8Jq5zFsFg-PZTn4LkV1waPHjtyu/view?usp=drivesdk"},
-            {"title": "ملزمة الكيمياء الرابع علمي", "link": "https://drive.google.com/file/d/1HnlWh0X7z8Hj8dRqa_Mdy8u7Kdw57g8k/view?usp=drivesdk"},
-            {"title": "ملزمة الاحياء الرابع علمي", "link": "https://drive.google.com/file/d/1ejdb7jTUz_lfifVQdW14-VUfkM8_qodm/view?usp=drivesdk"},
-            {"title": "ملزمة الفيزياء الرابع علمي", "link": "https://drive.google.com/file/d/1Rx5Q1nMY8z-hilpqPkl4FzQXXd6p2rY6/view?usp=drivesdk"},
-            {"title": "ملزمة الحاسوب الرابع علمي", "link": "https://drive.google.com/file/d/1rsPzse1hjYEKzNMrW6dy4I6HQ0uOUFkp/view?usp=drivesdk"},
-            {"title": "ملزمة الجغرافيا الرابع علمي", "link": "https://drive.google.com/file/d/1tHk9mp_Ft2V5_zG4Xjm0Tb1yybntP6lI/view?usp=drivesdk"},
-            {"title": "ملزمة الفقه الرابع علمي", "link": "https://drive.google.com/file/d/1Vj_cQxKfK5aUjaopZXNjKHz9k2UoX3nb/view?usp=drivesdk"},
-            {"title": "ملزمة التاريخ الرابع علمي", "link": "https://drive.google.com/file/d/1jjcEJVVqg75jw5JdxdKhmbVroKr1-qRs/view?usp=drivesdk"},
-            {"title": "ملزمة اللغة الفرنسية الرابع علمي", "link": "https://drive.google.com/file/d/1bQ8VPO0SZ64lcm7TajugfJbfFZghgQGM/view?usp=drivesdk"}
+            {"title": "ملزمة الانكليزي الرابع علمي ج2", "link": "https://drive.google.com/file/d/1ZbDv-u1YZHj6eosO6q9Ad9sT5XxFgAXN/view?usp=drivesdk"},
+            {"title": "ملزمة الرياضيات الرابع علمي", "link": "https://drive.google.com/file/d/1p3WTZyC_Tz5oZiv5wczEqPvB3jm7V7EJ/view?usp=drivesdk"},
+            {"title": "ملزمة الكيمياء الرابع علمي", "link": "https://drive.google.com/file/d/1Tc9ZxdpnYikduI4frOeFyIuFU-cwOZmF/view?usp=drivesdk"},
+            {"title": "ملزمة الفيزياء الرابع علمي", "link": "https://drive.google.com/file/d/1X8fs7Jh_Qk4n2-Hvq5cOqFwpwUfvf7QF/view?usp=drivesdk"},
+    {"title": "ملزمة الحاسوب الرابع علمي", "link": "https://example.com/science_computer"}
         ];
 
         const literaryNotes = [
-            {"title": "ملزمة الاسلامية الرابع أدبي", "link": "https://drive.google.com/file/d/1h680ZKaEJ5JLUu50sHWwtQBMzsvMe1ZK/view?usp=drivesdk"},
-            {"title": "ملزمة العربي الرابع أدبي", "link": "https://drive.google.com/file/d/1Agj5wgrOXWvAn0MWHtZuxCtdH1c-azYX/view?usp=drivesdk"},
-            {"title": "ملزمة التاريخ الرابع أدبي", "link": "https://drive.google.com/file/d/12lI5cli9V237pcSDBDQhc5DcD_b8YJwc/view?usp=drivesdk"},
-            {"title": "ملزمة الجغرافيا الرابع أدبي", "link": "https://drive.google.com/file/d/1bQ8VPO0SZ64lcm7TajugfJbfFZghgQGM/view?usp=drivesdk"},
-            {"title": "ملزمة الفلسفة الرابع أدبي", "link": "https://drive.google.com/file/d/1ejdb7jTUz_lfifVQdW14-VUfkM8_qodm/view?usp=drivesdk"},
-            {"title": "ملزمة علم النفس الرابع أدبي", "link": "https://drive.google.com/file/d/1jjcEJVVqg75jw5JdxdKhmbVroKr1-qRs/view?usp=drivesdk"},
-            {"title": "ملزمة التربية الوطنية الرابع أدبي", "link": "https://drive.google.com/file/d/1rsPzse1hjYEKzNMrW6dy4I6HQ0uOUFkp/view?usp=drivesdk"},
-            {"title": "ملزمة الفقه الرابع أدبي", "link": "https://drive.google.com/file/d/1tHk9mp_Ft2V5_zG4Xjm0Tb1yybntP6lI/view?usp=drivesdk"},
-            {"title": "ملزمة اللغة الفرنسية الرابع أدبي", "link": "https://drive.google.com/file/d/1Vj_cQxKfK5aUjaopZXNjKHz9k2UoX3nb/view?usp=drivesdk"}
+            {"title": "ملزمة الاسلامية الرابع أدبي", "link": "https://drive.google.com/file/d/1YwAtxoQroCuX1gCwPVdD9sSMT4nZp3Yk/view?usp=drivesdk"},
+            {"title": "ملزمة العربي الرابع أدبي ج1", "link": "https://drive.google.com/file/d/1l6b0B93Azv4c7uPpxlmxnk38gfRUZaIm/view?usp=drivesdk"},
+            {"title": "ملزمة العربي الرابع أدبي ج2", "link": "https://drive.google.com/file/d/1aFmkw6ovD7JqdhNweNf3J4Q4zLn7wYdb/view?usp=drivesdk"},
+            {"title": "ملزمة الانكليزي الرابع أدبي ج1", "link": "https://drive.google.com/file/d/1xWyC2EYW7iq-HZqJY3Zn9-Fw-XGiOY0C/view?usp=drivesdk"},
+            {"title": "ملزمة الانكليزي الرابع أدبي ج2", "link": "https://drive.google.com/file/d/1qQ19BFS5zMJb0_P9gyF3C2sghdhpz91R/view?usp=drivesdk"},
+            {"title": "ملزمة التاريخ الرابع أدبي", "link": "https://drive.google.com/file/d/1cP6lPujcQQxzzGZDrCw_ZiYLM3BpiI1h/view?usp=drivesdk"},
+            {"title": "ملزمة الحاسوب الرابع أدبي", "link": "https://example.com/science_computer"}
         ];
 
         function showNotes(category) {
+            const notesContainer = document.getElementById('notes-container');
+            notesContainer.innerHTML = ""; // Clear the container
             let notes = category === 'science' ? scienceNotes : literaryNotes;
-            let noteListHTML = notes.map(note => `<li class="note-item"><a href="${note.link}" target="_blank">${note.title}</a></li>`).join('');
-            document.getElementById('main-content').innerHTML = `
-                <a href="#" class="back-btn" onclick="goBack()">◁</a>
-                <h2>الملازم</h2>
-                <ul class="note-list">${noteListHTML}</ul>
-            `;
+            
+            notes.forEach(note => {
+                const noteElement = document.createElement('li');
+                noteElement.classList.add('note-item');
+                noteElement.innerHTML = `<a href="${note.link}" target="_blank">${note.title}</a>`;
+                notesContainer.appendChild(noteElement);
+            });
         }
 
         function showBooks(category) {
+            const notesContainer = document.getElementById('notes-container');
+            notesContainer.innerHTML = ""; // Clear the container
             let books = category === 'science' ? scienceBooks : literaryBooks;
-            let bookListHTML = books.map(book => `<li class="note-item"><a href="${book.link}" target="_blank">${book.title}</a></li>`).join('');
-            document.getElementById('main-content').innerHTML = `
-                <a href="#" class="back-btn" onclick="goBack()">◁</a>
-                <h2>الكتب</h2>
-                <ul class="note-list">${bookListHTML}</ul>
-            `;
+            
+            books.forEach(book => {
+                const noteElement = document.createElement('li');
+                noteElement.classList.add('note-item');
+                noteElement.innerHTML = `<a href="${book.link}" target="_blank">${book.title}</a>`;
+                notesContainer.appendChild(noteElement);
+            });
         }
 
-        function goBack() {
-            document.getElementById('main-content').innerHTML = `
-                <div id="buttons" class="button-container">
-                    <a class="category-btn" href="#" onclick="showNotes('science')">ملازم الرابع علمي 📚</a>
-                    <a class="category-btn" href="#" onclick="showNotes('literary')">ملازم الرابع أدبي 📚</a>
-                    <a class="category-btn" href="#" onclick="showBooks('science')">كتب الرابع علمي 📚</a>
-                    <a class="category-btn" href="#" onclick="showBooks('literary')">كتب الرابع أدبي 📚</a>
-                </div>
-            `;
-        }
     </script>
 </body>
 </html>
